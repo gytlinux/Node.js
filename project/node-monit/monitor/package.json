@@ -1,0 +1,16 @@
+{
+  "name": "Remote-monitoring",
+  "version": "1.0.0",
+  "description": "",
+  "main": "monit.js",
+  "scripts": {
+    "ssh-key": "sshkey.sh"
+  },
+  "author": "GL",
+  "license": "ISC",
+  "dependencies": {
+    "node-schedule": "^1.2.5",
+    "nodemailer": "^4.4.1",
+    "request": "^2.83.0"
+  }
+}

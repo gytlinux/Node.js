@@ -32,8 +32,6 @@
 
 * [老牌的响应式 jQuery 幻灯片效果](SlidesJS)
 
-* [模态窗口，工具提示和消息效果](jBox)
-
 * [世界上最棒的 jQuery 图片轮播效果](Nivo-Slider)
 
 * [超炫 HTML5 粒子效果进度条](probar)
@@ -99,5 +97,10 @@
 * [JavaScript可展开隐藏的侧边栏下拉菜单](javascript-side-drop-menu)
 
 * [jsModern网页视频播放器插件](jsmodern)
+
+* [textarea实现高度自适应](textarea)
+
+* [jQuery侧边栏](jquery-3d-menu-with-search)
+
 
 

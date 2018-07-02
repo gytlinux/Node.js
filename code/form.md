@@ -39,7 +39,7 @@ module.exports = router;
 
 ```
 
-![](form1.jpg)
+![](img/form1.jpg)
 
 > 控制台输出
 
@@ -53,7 +53,7 @@ GET /?txtUserName=test&txtUserPwd=123456789 200 1.442 ms - 372
 
 ```
 
-![](form2.jpg)
+![](img/form2.jpg)
 
 
 ### POST方式
@@ -96,7 +96,7 @@ module.exports = router;
 
 ```
 
-![](form3.jpg)
+![](img/form3.jpg)
 
 > 控制台输出
 
@@ -109,7 +109,7 @@ POST / 200 12.940 ms - 386
 
 ```
 
-![](form4.jpg)
+![](img/form4.jpg)
 
 ### GET和POST方式接收值
 
@@ -139,6 +139,93 @@ app.use(bodyParser.urlencoded());
 ```
 
 **没有这个中间件Express就不知道怎么处理这个请求，通过bodyParser中间件分析 application/x-www-form-urlencoded和application/json请求，并把变量存入req.body，这种我们才能够获取到！**
+
+## 应用
+
+### form包含的表单元素
+
+```
+<input > //简单的文本输入框
+
+<textarea></textarea>  //多行文本输入
+
+<button></button>   //按钮
+
+<select></select>   //带选项的选择列表
+
+<option></option>   //定义下拉列表中的一个选项,可以在不带有任何属性的情况下使用，但是您通常需要使用 value 属性，此属性会指示出被送往服务器的内容。**与<select>**标签配合使用
+
+<optgroup></optgroup>  //把相关选项组合在一起，与<select>和<option>配合使用
+
+<fieldset></fieldset>  //将表单内的相关元素分组,会在相关表单元素周围绘制边框。
+
+<legend></legend>  //为 <fieldset> 元素定义标题。
+
+<label></label>  //为 input 元素定义标注（标记）label 元素不会向用户呈现任何特殊效果。不过，它为鼠标用户改进了可用性。如果您在 label 元素内点击文本，就会触发此控件。就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上。<label> 标签的 for 属性应当与相关元素的 id 属性相同。
+
+```
+### 网页输入，实时显示输入结果
+
+* html
+
+```
+<form id="form1">  
+  <textarea id="name" name="name" type="text" oninput="display()">
+  </textarea>
+</form>
+<div id="display">
+</div>
+```
+
+* html-<script></script>
+
+```
+function display() {
+//一
+var name = document.getElementById("name").value;  
+var display = document.getElementById("display");
+display.innerHTML=name;
+
+//二
+name = form1.name.value;  
+var display = document.getElementById("display");
+display.innerHTML=name;
+
+//三 jquery
+name = $("#name").val();  
+var display = document.getElementById("display");
+display.innerHTML=name;
+
+//四 jquery
+name =  $("input[id='name']").val();  
+var display = document.getElementById("display");
+display.innerHTML=name;
+
+//五 jquery
+
+name = $("#name").attr("value");  
+var display = document.getElementById("display");
+display.innerHTML=name;
+
+//六 jquery
+name = $("input[id='name']").attr("value");  
+var display = document.getElementById("display");
+display.innerHTML=name;
+
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

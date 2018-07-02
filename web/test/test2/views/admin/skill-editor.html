@@ -1,0 +1,52 @@
+{% extends 'skill.html' %}
+{% block head %}
+    <link rel="stylesheet" href="/editor/css/editormd.min.css"/>
+    <link rel="stylesheet" href="/css/admin/skill-editor.css"/>
+    <link rel="stylesheet" href="/css/admin/selectFilter.css"/>
+    <script src="/editor/js/editormd.min.js"></script>
+    <script type="text/javascript" src="/js/admin/skill-editor.js"></script> 
+    <script type="text/javascript" src="/js/admin/skillform.js"></script>
+    <script type="text/javascript" src="/js/textarea.js"></script>
+{% endblock %}
+{% block skill %}
+<div class="edit">
+  <div class="edit-form">
+    <form method="post" action="/admin/skill/edit" enctype="multipart/form-data" onsubmit="return check(this)">
+      <div class="item-head">
+        <div class="title">
+          <input type="text" name="article-title" placeholder="标题" />
+        </div>  
+        <div class="item-tag">
+          <div class="filter-box">
+            <div class="filter-text">
+              {% if tag %}
+              <input class="filter-title" type="text" name="article-tag" value="{{tag}}" readonly placeholder="标签" />
+              {% else %}
+              <input class="filter-title" type="text" name="article-tag" readonly placeholder="标签" />
+              {% endif %}
+              <i class="icon icon-filter-arrow"></i>
+            </div>
+            <select name="filter">
+              {% for i in tagselect %}
+              <option value="{{i}}">{{i}}</option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="item-intro">
+           <textarea id="intro" type="text" name="article-intro" placeholder="简介"></textarea>
+           <script>
+             var text = document.getElementById("intro");
+             autoTextarea(text);
+           </script>
+      </div>  
+      <div id="editormd"></div>
+      <div>
+        <button class="formbtn" type="submit">发表</button>
+      </div>
+    </form>
+  </div>    
+</div>
+<script type="text/javascript" src="/js/admin/selectFilter.js"></script> 
+{% endblock %}
